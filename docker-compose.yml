@@ -1,0 +1,37 @@
+services:
+  web:
+    image: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./web/code/:/usr/share/nginx/html/
+      - ./web/config/:/etc/nginx/conf.d
+    networks:
+      - webnet
+    depends_on:
+      - app
+      - db
+
+  app:
+    image: bitnami/php-fpm
+    volumes:
+      - ./app/code/:/app/
+    networks:
+      - webnet
+      - dbnet
+    depends_on:
+      - db
+
+  db:
+    build: ./db/
+    volumes:
+      - myvol:/var/lib/mysql
+    networks:
+      - dbnet
+
+volumes:
+  myvol:
+
+networks:
+  webnet:
+  dbnet:

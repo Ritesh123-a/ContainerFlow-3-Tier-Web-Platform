@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup Form</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f4f4f6;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .form-wrap {
+      width: 100%;
+      max-width: 480px;
+      background: #ffffff;
+      border: 1px solid #e2e2e6;
+      border-radius: 12px;
+      padding: 2rem;
+    }
+
+    .form-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #111;
+      margin-bottom: 1.5rem;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 1.25rem;
+    }
+
+    .field label {
+      font-size: 13px;
+      font-weight: 500;
+      color: #555;
+    }
+
+    .field input[type="text"],
+    .field input[type="email"],
+    .field input[type="url"],
+    .field textarea {
+      width: 100%;
+      padding: 9px 12px;
+      border: 1px solid #d1d1d6;
+      border-radius: 8px;
+      background: #fff;
+      color: #111;
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: #888;
+      box-shadow: 0 0 0 3px rgba(100, 100, 180, 0.12);
+    }
+
+    .field textarea {
+      resize: vertical;
+      min-height: 90px;
+      line-height: 1.6;
+    }
+
+    .radio-group {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .radio-option {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      color: #111;
+      cursor: pointer;
+    }
+
+    .radio-option input[type="radio"] {
+      width: 15px;
+      height: 15px;
+      accent-color: #555;
+      cursor: pointer;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 10px;
+      background: #111;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      font-family: inherit;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      transition: opacity 0.15s, transform 0.1s;
+    }
+
+    .submit-btn:hover { opacity: 0.85; }
+    .submit-btn:active { opacity: 0.7; transform: scale(0.99); }
+  </style>
+</head>
+<body>
+  <div class="form-wrap">
+    <h2 class="form-title">Create an account</h2>
+    <form action="submit.php" method="post">
+
+      <div class="field">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your full name" required>
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+      </div>
+
+      <div class="field">
+        <label for="website">Website</label>
+        <input type="url" id="website" name="website" placeholder="https://yoursite.com">
+      </div>
+
+      <div class="field">
+        <label for="comment">Comment</label>
+        <textarea id="comment" name="comment" placeholder="Say something…"></textarea>
+      </div>
+
+      <div class="field">
+        <label>Gender</label>
+        <div class="radio-group">
+          <label class="radio-option">
+            <input type="radio" name="gender" value="female" required> Female
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="gender" value="male"> Male
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="gender" value="other"> Other
+          </label>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+  </div>
+</body>
+</html>
